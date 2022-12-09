@@ -81,7 +81,7 @@ const syncForum = async (forumId) => {
     // Result should be, for example:
     // num_topics: int
     // num_posts: int
-    const result = pool.query(text, values, (err, res) => {
+    const result = await pool.query(text, values, (err, res) => {
         if (err) {
             console.log("ERR MSG: ", err.message);
         } else {
@@ -101,7 +101,7 @@ const syncForum = async (forumId) => {
     // last_post: int
     // last_post_id: int
     // last_poster: string
-    const result2 = pool.query(text2, values2, (err, res) => {
+    const result2 = await pool.query(text2, values2, (err, res) => {
         if (err) {
             console.log("ERR MSG: ", err.message);
         } else {
