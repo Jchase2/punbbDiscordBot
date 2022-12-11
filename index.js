@@ -95,7 +95,10 @@ client.on('ready', () => {
 client.on('messageCreate', async msg => {
     if (msg.channelId == '376566888857206785') {
         if (msg.content.startsWith('https://www.youtube.com') || msg.content.startsWith('https://youtube.com') || msg.content.startsWith('https://youtu.be')) {
-            createNewPost(msg.author.username, msg.content, 35);
+            let guild = await client.guilds.fetch(msg.guildId);
+            let member = await guild.members.fetch(msg.author);
+            let nickname = member ? member.displayName : msg.author.username;
+            createNewPost(nickname, msg.content, 35);
         }
     } else {
         return;
