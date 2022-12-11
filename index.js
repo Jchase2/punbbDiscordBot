@@ -16,7 +16,7 @@ const createNewPost = async (userName, url, topicId) => {
     try {
         const message = `Posted by ${userName}: [video][url]${url}[/url][/video]`;
         const text = 'INSERT INTO posts(poster, poster_id, poster_ip, message, hide_smilies, posted, topic_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *';
-        const values = ['dneBot', 999999, '127.0.0.1', message, 0, Math.floor(+new Date() / 1000), topicId];
+        const values = ['dneBot', process.env.FORUM_USER_ID, '127.0.0.1', message, 0, Math.floor(+new Date() / 1000), topicId];
         let result = await pool.query(text, values);
         console.log("RESULT FROM CREATE NEW POST: ", result.rows[0])
         let topicReplies = await countTopicReplies(topicId);
