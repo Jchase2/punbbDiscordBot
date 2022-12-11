@@ -10,14 +10,16 @@ Just Run:
 
 Fill in the dotenv file:
 
-```CLIENT_TOKEN=''
+```
+CLIENT_TOKEN=''
 CLIENT_ID=''
 DB_USERNAME='postgres'
 DB_PW=''
 DB_HOST=''
 DB_PORT='5432'
 DB_NAME=''
-FORUM_USER_ID=''```
+FORUM_USER_ID=''
+```
 
 Finally, in a tmux session or similar, run:
 
